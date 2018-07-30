@@ -80,23 +80,23 @@ def svm_loss_vectorized(W, X, y, reg):
   # result in loss.                                                           #
   #############################################################################
   score = X @ W
-  correct_scores=score[np.arange(num_train), y]
 
+  correct_scores=score[np.arange(num_train), y].reshape(-1,1)
   margins_uncapped=score-correct_scores+1
+  score_mask=margins_uncapped>0
+  score_mask[np.arange(num_train),y]=0
 
-  counted=margins_uncapped>0
-  counted[:,y]=False
-
-  margins=margins_uncapped[counted]
+  margins=margins_uncapped[score_mask]
   loss = np.sum(margins)/num_train
   
-  dW+=X.T @ counted 
-
+  dW+=X.T @ score_mask 
   temp=np.zeros((num_train,num_classes))
   temp[np.arange(num_train), y]=1
-  dW-=(X * counted.sum(axis=1)).T @ temp  # TODO: check
 
-  # lzq: regularization
+  dW-=(X*score_mask.sum(axis=1).reshape(-1,1)).T @ temp
+  dW/=num_train
+
+  # regularization
   loss += reg * np.sum(W * W)
   dW += 2*reg*W
   
