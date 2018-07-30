@@ -1,4 +1,4 @@
 *.pdf
-.ipynb_checkpoints/
-.idea/
-requirements.txt
+.ipynb_checkpoints
+.idea
+**/requirements.txt
