@@ -1,0 +1,6 @@
+# notes
+*.pdf
+
+# Jupyter
+.ipynb_checkpoints/
+
