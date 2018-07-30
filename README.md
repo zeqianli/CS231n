@@ -4,7 +4,7 @@ Standford CS231n Convolutional Neural Networks for Visual Recognition (2017): ht
 
 I'm learning online and I do not guarantee that my solutions are correct. Discussions are welcomed. 
 
-** DO NOT COPY DIRECTLY. I DON'T TAKE RESPONSIBILITIES FOR PLAGIARISM. **
+**DO NOT COPY DIRECTLY. I DON'T TAKE RESPONSIBILITIES FOR PLAGIARISM.**
 
 Progress:
 
