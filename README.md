@@ -9,7 +9,7 @@ I'm learning online and I do not guarantee that my solutions are correct. Discus
 Progress:
 
 - [ ] Assignment #1: kNN, SVM, SoftMax, two-layer network 
-    * [ ] Q1: k-Nearest Neighbor classifier (20 points)
+    * [x] Q1: k-Nearest Neighbor classifier (20 points)
     * [ ] Q2: Training a Support Vector Machine (25 points)
     * [ ] Q3: Implement a Softmax classifier (20 points)
     * [ ] Q4: Two-Layer Neural Network (25 points)
