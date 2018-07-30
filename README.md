@@ -4,8 +4,6 @@ Standford CS231n Convolutional Neural Networks for Visual Recognition (2017): ht
 
 I'm learning online. I do my best to check my answers, but I do not guarantee that they are correct. Discussions are welcomed. 
 
-**DO NOT COPY DIRECTLY. I DON'T TAKE RESPONSIBILITIES FOR PLAGIARISM.**
-
 Progress:
 
 - [ ] Assignment #1: kNN, SVM, SoftMax, two-layer network 
@@ -29,3 +27,5 @@ Progress:
     * [ ] Q4: Style Transfer (15 points)
     * [ ] Q5: Generative Adversarial Networks (15 points)
 - [ ] Course project
+
+**DO NOT COMMIT PLAGIARISM.**
