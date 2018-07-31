@@ -22,6 +22,10 @@ def softmax_loss_naive(W, X, y, reg):
   # Initialize the loss and gradient to zero.
   loss = 0.0
   dW = np.zeros_like(W)
+  
+  N=X.shape[0]
+  C=W.shape[1] # num of classes
+  D=W.shape[0] # D=3
 
   #############################################################################
   # TODO: Compute the softmax loss and its gradient using explicit loops.     #
@@ -29,7 +33,28 @@ def softmax_loss_naive(W, X, y, reg):
   # here, it is easy to run into numeric instability. Don't forget the        #
   # regularization!                                                           #
   #############################################################################
-  pass
+
+  for i in range(N):
+    score=X[i,:] @ W
+    score-=score.max() # shift to <0
+    
+    partition=np.sum(np.exp(score))
+
+    margin=-score[y[i]]+np.log(partition)
+    loss+=margin
+
+    for j in range(C):
+      for k in range(D):
+        if j==y[i]:
+          dW[k,j]-=X[i,k]
+        dW[k,j]+=X[i,k]*np.exp(score[j])/partition
+  
+  loss/=N
+  dW/=N
+
+  loss+=reg*np.sum(W*W)
+  dW+=2*reg*W
+
   #############################################################################
   #                          END OF YOUR CODE                                 #
   #############################################################################
@@ -47,13 +72,32 @@ def softmax_loss_vectorized(W, X, y, reg):
   loss = 0.0
   dW = np.zeros_like(W)
 
+  N=X.shape[0]
+  C=W.shape[1] # num of classes
+  D=W.shape[0] # D=3
+
   #############################################################################
   # TODO: Compute the softmax loss and its gradient using no explicit loops.  #
   # Store the loss in loss and the gradient in dW. If you are not careful     #
   # here, it is easy to run into numeric instability. Don't forget the        #
   # regularization!                                                           #
   #############################################################################
-  pass
+  score=X @ W
+  score-=score.max(axis=1).reshape(-1,1)
+  partition=np.sum(np.exp(score),axis=1).reshape(-1,1)
+  
+  loss=np.mean(-(score[np.arange(N),y])+np.log(partition))
+  
+  dW+=X.T @ (np.exp(score)/partition)  
+  map_mtx=np.zeros((N,C))
+  map_mtx[np.arange(N),y]=1
+  dW-=X.T @ map_mtx
+
+  dW/=N
+
+  loss+=reg*np.sum(W*W)
+  dW+=2*reg*W
+
   #############################################################################
   #                          END OF YOUR CODE                                 #
   #############################################################################
