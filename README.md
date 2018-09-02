@@ -6,12 +6,12 @@ I'm learning online. I do my best to check my answers, but I do not guarantee th
 
 Progress:
 
-- [ ] Assignment #1: kNN, SVM, SoftMax, two-layer network 
+- [x] Assignment #1: kNN, SVM, SoftMax, two-layer network 
     * [x] Q1: k-Nearest Neighbor classifier (20 points)
     * [x] Q2: Training a Support Vector Machine (25 points)
     * [x] Q3: Implement a Softmax classifier (20 points)
     * [x] Q4: Two-Layer Neural Network (25 points)
-    * [ ] Q5: Higher Level Representations: Image Features (10 points)
+    * [x] Q5: Higher Level Representations: Image Features (10 points)
     * [ ] Q6: Cool Bonus: Do something extra! (+10 points)
 - [ ] Assignment #2: Neural networks, ConvNets 
     * [ ] Q1: Fully-connected Neural Network (25 points)
